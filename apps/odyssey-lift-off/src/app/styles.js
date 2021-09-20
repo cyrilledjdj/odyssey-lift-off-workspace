@@ -40,7 +40,7 @@ const GlobalStyles = () => (
         display: 'flex',
         flexDirection: 'column',
         minHeight: '100%',
-        backgroundImage: 'url("/space_kitty_pattern.png")',
+        backgroundImage: 'url("assets/space_kitty_pattern.png")',
       },
       '*': {
         boxSizing: 'border-box',
