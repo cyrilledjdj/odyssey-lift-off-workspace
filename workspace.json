@@ -1,0 +1,129 @@
+{
+  "version": 2,
+  "projects": {
+    "odyssey-lift-off": {
+      "root": "apps/odyssey-lift-off",
+      "sourceRoot": "apps/odyssey-lift-off/src",
+      "projectType": "application",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/web:build",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/apps/odyssey-lift-off",
+            "index": "apps/odyssey-lift-off/src/index.html",
+            "main": "apps/odyssey-lift-off/src/main.tsx",
+            "polyfills": "apps/odyssey-lift-off/src/polyfills.ts",
+            "tsConfig": "apps/odyssey-lift-off/tsconfig.app.json",
+            "assets": [
+              "apps/odyssey-lift-off/src/favicon.ico",
+              "apps/odyssey-lift-off/src/assets"
+            ],
+            "styles": ["apps/odyssey-lift-off/src/styles.scss"],
+            "scripts": [],
+            "webpackConfig": "@nrwl/react/plugins/webpack"
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/odyssey-lift-off/src/environments/environment.ts",
+                  "with": "apps/odyssey-lift-off/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "executor": "@nrwl/web:dev-server",
+          "options": {
+            "buildTarget": "odyssey-lift-off:build",
+            "hmr": true
+          },
+          "configurations": {
+            "production": {
+              "buildTarget": "odyssey-lift-off:build:production",
+              "hmr": false
+            }
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["apps/odyssey-lift-off/**/*.{ts,tsx,js,jsx}"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/apps/odyssey-lift-off"],
+          "options": {
+            "jestConfig": "apps/odyssey-lift-off/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "odyssey-lift-off-e2e": {
+      "root": "apps/odyssey-lift-off-e2e",
+      "sourceRoot": "apps/odyssey-lift-off-e2e/src",
+      "projectType": "application",
+      "targets": {
+        "e2e": {
+          "executor": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/odyssey-lift-off-e2e/cypress.json",
+            "devServerTarget": "odyssey-lift-off:serve",
+            "tsConfig": "apps/odyssey-lift-off-e2e/tsconfig.json"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "odyssey-lift-off:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["apps/odyssey-lift-off-e2e/**/*.{js,ts}"]
+          }
+        }
+      }
+    }
+  },
+  "cli": {
+    "defaultCollection": "@nrwl/react"
+  },
+  "generators": {
+    "@nrwl/react": {
+      "application": {
+        "style": "scss",
+        "linter": "eslint",
+        "babel": true
+      },
+      "component": {
+        "style": "scss"
+      },
+      "library": {
+        "style": "scss",
+        "linter": "eslint"
+      }
+    }
+  },
+  "defaultProject": "odyssey-lift-off"
+}
