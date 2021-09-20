@@ -30,6 +30,9 @@
     "odyssey-lift-off": {
       "tags": []
     },
+    "odyssey-lift-off-api": {
+      "tags": []
+    },
     "odyssey-lift-off-e2e": {
       "tags": [],
       "implicitDependencies": ["odyssey-lift-off"]

@@ -16,6 +16,8 @@
             "polyfills": "apps/odyssey-lift-off/src/polyfills.ts",
             "tsConfig": "apps/odyssey-lift-off/tsconfig.app.json",
             "assets": [
+              "apps/odyssey-lift-off/src/robots.txt",
+              "apps/odyssey-lift-off/src/manifest.json",
               "apps/odyssey-lift-off/src/favicon.ico",
               "apps/odyssey-lift-off/src/assets"
             ],
@@ -73,6 +75,57 @@
           "outputs": ["coverage/apps/odyssey-lift-off"],
           "options": {
             "jestConfig": "apps/odyssey-lift-off/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "odyssey-lift-off-api": {
+      "root": "apps/odyssey-lift-off-api",
+      "sourceRoot": "apps/odyssey-lift-off-api/src",
+      "projectType": "application",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/node:build",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/apps/odyssey-lift-off-api",
+            "main": "apps/odyssey-lift-off-api/src/main.ts",
+            "tsConfig": "apps/odyssey-lift-off-api/tsconfig.app.json",
+            "assets": ["apps/odyssey-lift-off-api/src/assets"]
+          },
+          "configurations": {
+            "production": {
+              "optimization": true,
+              "extractLicenses": true,
+              "inspect": false,
+              "fileReplacements": [
+                {
+                  "replace": "apps/odyssey-lift-off-api/src/environments/environment.ts",
+                  "with": "apps/odyssey-lift-off-api/src/environments/environment.prod.ts"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "executor": "@nrwl/node:execute",
+          "options": {
+            "buildTarget": "odyssey-lift-off-api:build"
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["apps/odyssey-lift-off-api/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/apps/odyssey-lift-off-api"],
+          "options": {
+            "jestConfig": "apps/odyssey-lift-off-api/jest.config.js",
             "passWithNoTests": true
           }
         }
