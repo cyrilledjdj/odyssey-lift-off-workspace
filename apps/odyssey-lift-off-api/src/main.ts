@@ -8,7 +8,7 @@ import typeDefs from './schema';
 
 const mocks = {
   Query: () => ({
-    getTracks: () => [... new Array(6)],
+    getTracks: () => [... new Array(9)],
   }),
   Track: () => ({
     id: () => 'track_01',
