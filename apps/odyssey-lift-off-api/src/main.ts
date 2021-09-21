@@ -3,16 +3,35 @@
  * This is only a minimal backend to get started.
  */
 
-import * as express from 'express';
+import { ApolloServer } from 'apollo-server';
+import typeDefs from './schema';
 
-const app = express();
+const mocks = {
+  Query: () => ({
+    getTracks: () => [... new Array(6)],
+  }),
+  Track: () => ({
+    id: () => 'track_01',
+    title: () => 'Astro Kitty, Space Explorer',
+    author: () => {
+      return {
+        name: 'Grumpy Cat',
+        photo:
+          'https://res.cloudinary.com/dety84pbu/image/upload/v1606816219/kitty-veyron-sm_mctf3c.jpg'
+      };
+    },
+    thumbnail: () =>
+      'https://res.cloudinary.com/dety84pbu/image/upload/v1598465568/nebula_cat_djkt9r.jpg',
+    length: () => 1210,
+    modulesCount: () => 6
+  })
+}
 
-app.get('/api', (req, res) => {
-  res.send({ message: 'Welcome to odyssey-lift-off-api!' });
+const server = new ApolloServer({ typeDefs, mocks });
+server.listen().then(() => {
+  console.log(`
+    🚀 Server ready
+    at http://localhost:4000
+    Query at https://studio.apollographql.com/dev
+  `);
 });
-
-const port = process.env.port || 3333;
-const server = app.listen(port, () => {
-  console.log(`Listening at http://localhost:${port}/api`);
-});
-server.on('error', console.error);
