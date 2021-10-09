@@ -4,11 +4,15 @@ import styled from '@emotion/styled';
 import { Link } from '@reach/router';
 import logo from '../../assets/space_cat_logo.png';
 
+/* export interface HeaderProps {
+  children?: React.ReactNode;
+} */
+
 /**
  * Header renders the top navigation
  * for this particular tutorial level, it only holds the home button
  */
-const Header = ({ children }) => {
+const Header = ({ children }/* : HeaderProps */) => {
   return (
     <HeaderBar>
       <Container>

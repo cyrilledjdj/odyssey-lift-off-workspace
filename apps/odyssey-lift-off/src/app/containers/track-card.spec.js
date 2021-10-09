@@ -1,6 +1,6 @@
 import React from 'react';
-import { renderApollo, cleanup, waitForElement } from '../../utils/test-utils';
-import TrackCard from '../track-card';
+import { cleanup, renderApollo, waitForElement } from '../utils/test-utils';
+import TrackCard from './track-card';
 
 const mockTrackCardData = {
   id: 'c_0',

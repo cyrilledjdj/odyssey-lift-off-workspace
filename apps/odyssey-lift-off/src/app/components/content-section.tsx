@@ -2,11 +2,15 @@ import React from 'react';
 import styled from '@emotion/styled';
 import { widths, colors } from '../styles';
 
+export interface ContentSectionProps {
+  children: React.ReactNode;
+}
+
 /**
  * Content Section component renders content (mainly text/mdown based)
  * for course detail and lesson detail
  */
-const ContentSection = ({ children }) => {
+const ContentSection = ({ children }: ContentSectionProps) => {
   return <ContentDiv>{children}</ContentDiv>;
 };
 

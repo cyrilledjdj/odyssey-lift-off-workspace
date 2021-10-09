@@ -3,11 +3,15 @@ import styled from '@emotion/styled';
 import { colors, mq } from '../styles';
 import { humanReadableTimeFromSeconds } from '../utils/helpers';
 
+export interface TrackCardProps {
+  track: any;
+}
+
 /**
  * Track Card component renders basic info in a card format
  * for each track populating the tracks grid homepage.
  */
-const TrackCard = ({ track }) => {
+const TrackCard = ({ track }: TrackCardProps) => {
   const { title, thumbnail, author, length, modulesCount } = track;
 
   return (
@@ -114,7 +118,7 @@ const CardBody = styled.div({
 
 const CardFooter = styled.div({
   display: 'flex',
-  flexDirection: 'Row',
+  flexDirection: 'row',
 });
 
 const AuthorImage = styled.img({

@@ -2,10 +2,14 @@ import React from 'react';
 import styled from '@emotion/styled';
 import { colors, ApolloIcon } from '../styles';
 
+export interface FooterProps {
+  children?: React.ReactNode;
+}
+
 /**
  * Footer is useless component to make our app look a little closer to a real website!
  */
-const Footer = ({ children }) => {
+const Footer = ({ children }: FooterProps) => {
   return (
     <FooterContainer>
       2021 ©{' '}

@@ -3,9 +3,10 @@ import { StrictMode } from 'react';
 import * as ReactDOM from 'react-dom';
 import Pages from './app/pages';
 import GlobalStyles from './app/styles';
+import { environment } from './environments/environment';
 
 const client = new ApolloClient({
-  uri: 'http://localhost:4000/graphql',
+  uri: environment.apiUrl,
   cache: new InMemoryCache(),
 });
 

@@ -2,8 +2,8 @@ import React from 'react';
 // this adds custom jest matchers from jest-dom
 import '@testing-library/jest-dom/extend-expect';
 import { InMemoryCache } from '@apollo/client';
-import { renderApollo, cleanup, waitForElement } from '../../utils/test-utils';
-import Tracks, { TRACKS } from '../tracks';
+import { renderApollo, cleanup, waitForElement } from '../utils/test-utils';
+import Tracks, { TRACKS } from './tracks';
 
 const mockTrack = {
   id: 'c_0',
