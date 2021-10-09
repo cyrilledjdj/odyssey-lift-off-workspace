@@ -36,7 +36,7 @@ const server = new ApolloServer({
   dataSources: () => ({
     trackAPI: new TrackAPI(),
   }),
-  mocks: environment.production && mocks,
+  mocks: !environment.production && mocks,
 });
 server.listen().then(() => {
   console.log(`
