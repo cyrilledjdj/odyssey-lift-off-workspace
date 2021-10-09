@@ -4,11 +4,14 @@
  */
 
 import { ApolloServer } from 'apollo-server';
+import { resolvers } from './app/resolvers';
+import TrackAPI from './datasources/track-api';
+import { environment } from './environments/environment';
 import typeDefs from './schema';
 
 const mocks = {
   Query: () => ({
-    getTracks: () => [... new Array(9)],
+    getTracks: () => [...new Array(9)],
   }),
   Track: () => ({
     id: () => 'track_01',
@@ -17,17 +20,24 @@ const mocks = {
       return {
         name: 'Grumpy Cat',
         photo:
-          'https://res.cloudinary.com/dety84pbu/image/upload/v1606816219/kitty-veyron-sm_mctf3c.jpg'
+          'https://res.cloudinary.com/dety84pbu/image/upload/v1606816219/kitty-veyron-sm_mctf3c.jpg',
       };
     },
     thumbnail: () =>
       'https://res.cloudinary.com/dety84pbu/image/upload/v1598465568/nebula_cat_djkt9r.jpg',
     length: () => 1210,
-    modulesCount: () => 6
-  })
-}
+    modulesCount: () => 6,
+  }),
+};
 
-const server = new ApolloServer({ typeDefs, mocks });
+const server = new ApolloServer({
+  typeDefs,
+  resolvers,
+  dataSources: () => ({
+    trackAPI: new TrackAPI(),
+  }),
+  mocks: environment.production && mocks,
+});
 server.listen().then(() => {
   console.log(`
     🚀 Server ready
