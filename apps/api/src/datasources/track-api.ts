@@ -60,6 +60,6 @@ export default class TrackAPI extends RESTDataSource {
    * @returns {Promise<any>}
    */
   incrementTrackViews(trackId) {
-    return this.patch(`tracks/${trackId}/numberOfViews`);
+    return this.patch(`track/${trackId}/numberOfViews`);
   }
 }
