@@ -37,10 +37,11 @@ const server = new ApolloServer({
   }),
   mocks: process.env.NX_USE_MOCKS === 'true' && mocks,
 });
-server.listen().then(() => {
+server.listen({ port: process.env.PORT || 4000 }).then(({ url, port }) => {
   console.log(`
-    🚀 Server ready
-    at http://localhost:4000
-    Query at https://studio.apollographql.com/dev
+    🚀  Server is running
+    🔉  Listening on port ${port}
+    📭  Query at ${url} and maybe more
+        Query at https://studio.apollographql.com/dev
   `);
 });
