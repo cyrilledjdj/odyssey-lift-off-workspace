@@ -2,13 +2,14 @@
   "name": "odyssey-lift-off-workspace",
   "version": "0.0.0",
   "license": "MIT",
-  "main": "dist/apps/api/main.js",
+  "main": "dist/main.js",
   "scripts": {
     "nx": "nx",
-    "start": "run-p start:server start:client",
+    "start": "node dist/main",
+    "dev": "run-p start:server start:client",
     "start:client": "nx serve odyssey-lift-off",
     "start:server": "nx serve api",
-    "build": "nx run-many --target build --all --parallel",
+    "build": "nx run-many --target build --all --parallel --configuration --prod",
     "test": "nx test"
   },
   "private": true,
