@@ -6,7 +6,7 @@
     "nx": "nx",
     "start": "run-p start:server start:client",
     "start:client": "nx serve odyssey-lift-off",
-    "start:server": "nx serve odyssey-lift-off-api",
+    "start:server": "nx serve api",
     "build": "nx run-many --target build --all --parallel",
     "test": "nx test"
   },
