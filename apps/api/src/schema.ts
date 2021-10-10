@@ -11,6 +11,21 @@ const typeDefs = gql`
     "Query to get a module by id"
     module(id: ID!): Module
   }
+  "A Mutation query to update data in the database itself"
+  type Mutation {
+    incrementTrackViews(id: ID!): IncrementTrackViewsResponse!
+  }
+  "A type returned by our mutation queries"
+  type IncrementTrackViewsResponse {
+    "Similar to HTTP status code, represent the status of the mutation"
+    code: Int!
+    "Indicateds whether the mutation was successful"
+    success: Boolean!
+    "Human-readable message for the UI"
+    message: String!
+    "Newly updated track after a successful mutation"
+    track: Track
+  }
   "A track is a group of Modules that teaches about a specific topic"
   type Track {
     id: ID!

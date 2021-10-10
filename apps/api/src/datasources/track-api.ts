@@ -53,4 +53,13 @@ export default class TrackAPI extends RESTDataSource {
   getModule(moduleId) {
     return this.get(`module/${moduleId}`);
   }
+
+  /**
+   *
+   * @param trackId
+   * @returns {Promise<any>}
+   */
+  incrementTrackViews(trackId) {
+    return this.patch(`tracks/${trackId}/numberOfViews`);
+  }
 }
