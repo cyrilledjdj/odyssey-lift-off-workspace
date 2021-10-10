@@ -13,6 +13,17 @@ export const resolvers = {
       return dataSources.trackAPI.getModule(id);
     },
   },
+  Mutation: {
+    incrementTrackViews: async (_, { id }, { dataSources }) => {
+      const track = await dataSources.trackAPI.incrementTrackViews(id);
+      return {
+        code: 200,
+        success: true,
+        message: `Track views incremented successfully for ${id}`,
+        track,
+      };
+    },
+  },
   Track: {
     author: ({ authorId }, _, { dataSources }) => {
       return dataSources.trackAPI.getAuthor(authorId);
