@@ -6,7 +6,6 @@
 import { ApolloServer } from 'apollo-server';
 import { resolvers } from './app/resolvers';
 import TrackAPI from './datasources/track-api';
-import { environment } from './environments/environment';
 import typeDefs from './schema';
 
 const mocks = {
@@ -36,7 +35,7 @@ const server = new ApolloServer({
   dataSources: () => ({
     trackAPI: new TrackAPI(),
   }),
-  mocks: !environment.production && mocks,
+  mocks: process.env.NX_USE_MOCKS === 'true' && mocks,
 });
 server.listen().then(() => {
   console.log(`
