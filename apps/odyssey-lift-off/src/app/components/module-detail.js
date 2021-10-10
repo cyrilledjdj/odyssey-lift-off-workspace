@@ -1,4 +1,3 @@
-import React from 'react';
 import styled from '@emotion/styled';
 import { colors, widths } from '../styles';
 import useWindowDimensions from '../utils/useWindowDimensions';

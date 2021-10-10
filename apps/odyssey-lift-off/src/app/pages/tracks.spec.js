@@ -1,4 +1,3 @@
-import React from 'react';
 // this adds custom jest matchers from jest-dom
 import '@testing-library/jest-dom/extend-expect';
 import { InMemoryCache } from '@apollo/client';
@@ -45,7 +44,6 @@ describe('Tracks Page', () => {
 });
 
 /*
-import React from 'react';
 import { renderApollo, cleanup, waitForElement } from '../../test-utils';
 import { InMemoryCache } from '@apollo/client';
 

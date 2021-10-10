@@ -1,4 +1,3 @@
-import React from 'react';
 import '@apollo/space-kit/reset.css';
 import { colors as SKColors } from '@apollo/space-kit/colors';
 import { Global } from '@emotion/core';

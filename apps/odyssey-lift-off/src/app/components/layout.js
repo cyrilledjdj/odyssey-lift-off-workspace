@@ -1,4 +1,3 @@
-import React from 'react';
 import { Header, Footer } from '.';
 import styled from '@emotion/styled';
 import { widths, unit } from '../styles';

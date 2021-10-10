@@ -1,4 +1,3 @@
-import React from 'react';
 import styled from '@emotion/styled';
 import { colors } from '../styles';
 import ReactMarkdown from 'react-markdown';

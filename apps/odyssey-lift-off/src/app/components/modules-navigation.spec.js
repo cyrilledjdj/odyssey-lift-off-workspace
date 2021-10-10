@@ -1,4 +1,3 @@
-import React from 'react';
 import { render, cleanup } from '../../utils/test-utils';
 import ModuleNav from '../modules-navigation';
 

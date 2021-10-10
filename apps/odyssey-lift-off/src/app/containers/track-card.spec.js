@@ -1,4 +1,3 @@
-import React from 'react';
 import { cleanup, renderApollo, waitForElement } from '../utils/test-utils';
 import TrackCard from './track-card';
 
