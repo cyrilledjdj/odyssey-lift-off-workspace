@@ -15,13 +15,23 @@ export const resolvers = {
   },
   Mutation: {
     incrementTrackViews: async (_, { id }, { dataSources }) => {
-      const track = await dataSources.trackAPI.incrementTrackViews(id);
-      return {
-        code: 200,
-        success: true,
-        message: `Track views incremented successfully for ${id}`,
-        track,
-      };
+      try {
+        const track = await dataSources.trackAPI.incrementTrackViews(id);
+        return {
+          code: 200,
+          success: true,
+          message: `Track views incremented successfully for ${id}`,
+          track,
+        };
+      } catch (error) {
+        return {
+          code: error.extensions.response.status,
+          success: false,
+          message: `Error incrementing track views for ${id}\n
+          ${error.extensions.response.body}`,
+          track: null,
+        };
+      }
     },
   },
   Track: {
