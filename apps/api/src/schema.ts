@@ -66,6 +66,10 @@ const typeDefs = gql`
     length: Int @deprecated(reason: "Use durationInSeconds instead")
     "The Module's video duration in seconds"
     durationInSeconds: Int
+    "The module's text-based description, can be in markdown format. In case of a video, it will be the enriched transcript"
+    content: String
+    "The module's video url, for video-based modules"
+    videoUrl: String
   }
 `;
 
