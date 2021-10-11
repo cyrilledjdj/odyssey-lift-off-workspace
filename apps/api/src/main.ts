@@ -3,7 +3,9 @@
  * This is only a minimal backend to get started.
  */
 
-import { ApolloServer } from 'apollo-server';
+import { ApolloServer } from 'apollo-server-express';
+import * as express from 'express';
+import * as cors from 'cors';
 import { resolvers } from './app/resolvers';
 import TrackAPI from './datasources/track-api';
 import typeDefs from './schema';
@@ -29,19 +31,40 @@ const mocks = {
   }),
 };
 
-const server = new ApolloServer({
-  typeDefs,
-  resolvers,
-  dataSources: () => ({
-    trackAPI: new TrackAPI(),
-  }),
-  mocks: process.env.NX_USE_MOCKS === 'true' && mocks,
-});
-server.listen({ port: process.env.PORT || 4000 }).then(({ url, port }) => {
-  console.log(`
-    🚀  Server is running
-    🔉  Listening on port ${port}
-    📭  Query at ${url} and maybe more
-        Query at https://studio.apollographql.com/dev
-  `);
-});
+async function startApolloServer(typeDefs, resolvers) {
+  // Same ApolloServer initialization as before
+  const server = new ApolloServer({
+    typeDefs,
+    resolvers,
+    dataSources: () => ({
+      trackAPI: new TrackAPI(),
+    }),
+    mocks: process.env.NX_USE_MOCKS === 'true' && mocks,
+  });
+
+  // Required logic for integrating with Express
+  await server.start();
+
+  const app = express();
+  app.use(cors());
+  app.use(express.static('dist/apps/odyssey-lift-off'));
+
+  server.applyMiddleware({
+    app,
+    // By default, apollo-server hosts its GraphQL endpoint at the
+    // server root. However, *other* Apollo Server packages host it at
+    // /graphql. Optionally provide this to match apollo-server.
+    path: '/api',
+  });
+
+  // Modified server startup
+  app.listen({ port: process.env.PORT || 4000 }, () => {
+    console.log(`
+      🚀  Server is running
+      🔉  Listening on port ${process.env.PORT || 4000}
+      📭  Query at ${server.graphqlPath}
+    `);
+  });
+}
+
+startApolloServer(typeDefs, resolvers);
