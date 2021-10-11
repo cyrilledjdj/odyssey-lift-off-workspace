@@ -13,7 +13,7 @@ export const TRACKS = gql`
         name
       }
       thumbnail
-      length
+      durationInSeconds
       modulesCount
     }
   }
