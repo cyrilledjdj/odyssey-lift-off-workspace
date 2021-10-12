@@ -27,10 +27,17 @@
     ]
   },
   "projects": {
-    "odyssey-lift-off": {
+    "api": {
       "tags": []
     },
-    "api": {
+    "ng-lift-off": {
+      "tags": []
+    },
+    "ng-lift-off-e2e": {
+      "tags": [],
+      "implicitDependencies": ["ng-lift-off"]
+    },
+    "odyssey-lift-off": {
       "tags": []
     },
     "odyssey-lift-off-e2e": {
