@@ -6,11 +6,9 @@
   "scripts": {
     "nx": "nx",
     "start": "node dist/main",
-    "dev": "run-p start:server start:client",
-    "start:client": "nx serve odyssey-lift-off",
-    "start:server": "nx serve api",
+    "dev": "nx run-many --target serve --all --parallel",
     "build": "nx run-many --target build --all --parallel --configuration --prod",
-    "test": "nx test",
+    "test": "nx run-many --target test --projects=ng-lift-off,api --parallel",
     "postinstall": "ngcc --properties es2015 browser module main"
   },
   "private": true,

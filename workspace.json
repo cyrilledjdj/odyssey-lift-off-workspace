@@ -112,10 +112,12 @@
           "executor": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "ng-lift-off:build:production"
+              "browserTarget": "ng-lift-off:build:production",
+              "port": 4201
             },
             "development": {
-              "browserTarget": "ng-lift-off:build:development"
+              "browserTarget": "ng-lift-off:build:development",
+              "port": 4201
             }
           },
           "defaultConfiguration": "development"
