@@ -80,14 +80,14 @@
             "namedChunks": true,
             "vendorChunk": true,
             "extractCss": true,
-            "outputHashing": "all",
-            "baseHref": "/ng",
-            "deployUrl": "ng/"
+            "outputHashing": "all"
           },
           "configurations": {
             "production": {
               "sourceMap": false,
               "namedChunks": false,
+              "baseHref": "/ng",
+              "deployUrl": "ng/",
               "budgets": [
                 {
                   "type": "initial",
