@@ -48,6 +48,7 @@ async function startApolloServer(typeDefs, resolvers) {
   const app = express();
   app.use(cors());
   app.use(express.static('dist/apps/odyssey-lift-off'));
+  app.use('/ng', express.static('dist/apps/ng-lift-off'));
 
   server.applyMiddleware({
     app,

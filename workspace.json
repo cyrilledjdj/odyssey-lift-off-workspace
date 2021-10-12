@@ -73,10 +73,21 @@
               "apps/ng-lift-off/src/assets"
             ],
             "styles": ["apps/ng-lift-off/src/styles.scss"],
-            "scripts": []
+            "scripts": [],
+            "aot": true,
+            "buildOptimizer": true,
+            "sourceMap": true,
+            "namedChunks": true,
+            "vendorChunk": true,
+            "extractCss": true,
+            "outputHashing": "all",
+            "baseHref": "/ng",
+            "deployUrl": "ng/"
           },
           "configurations": {
             "production": {
+              "sourceMap": false,
+              "namedChunks": false,
               "budgets": [
                 {
                   "type": "initial",
