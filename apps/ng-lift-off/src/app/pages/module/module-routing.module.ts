@@ -4,6 +4,10 @@ import { ModuleComponent } from './module.component';
 
 const routes: Routes = [
   {
+    path: '',
+    component: ModuleComponent,
+  },
+  {
     path: ':moduleId',
     component: ModuleComponent,
   },

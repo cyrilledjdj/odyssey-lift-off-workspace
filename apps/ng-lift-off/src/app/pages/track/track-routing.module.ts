@@ -4,6 +4,10 @@ import { TrackComponent } from './track.component';
 
 const routes: Routes = [
   {
+    path: '',
+    component: TrackComponent,
+  },
+  {
     path: ':trackId',
     component: TrackComponent,
   },
