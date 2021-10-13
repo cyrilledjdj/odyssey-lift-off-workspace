@@ -9,6 +9,7 @@ import * as cors from 'cors';
 import { resolvers } from './app/resolvers';
 import TrackAPI from './datasources/track-api';
 import typeDefs from './schema';
+import path = require('path');
 
 const mocks = {
   Query: () => ({
@@ -47,9 +48,14 @@ async function startApolloServer(typeDefs, resolvers) {
 
   const app = express();
   app.use(cors());
-  app.use(express.static('dist/apps/odyssey-lift-off'));
   app.use('/ng', express.static('dist/apps/ng-lift-off'));
-
+  app.get('/ng/*', (_, res) => {
+    res.sendFile(path.join(__dirname, 'apps/ng-lift-off/index.html'));
+  });
+  app.use('/', express.static(path.join(__dirname, 'apps/odyssey-lift-off')));
+  app.get('/*', (_, res) => {
+    res.sendFile(path.join(__dirname, 'apps/odyssey-lift-off/index.html'));
+  });
   server.applyMiddleware({
     app,
     // By default, apollo-server hosts its GraphQL endpoint at the
