@@ -56,7 +56,7 @@
       "projectType": "application",
       "root": "apps/ng-lift-off",
       "sourceRoot": "apps/ng-lift-off/src",
-      "prefix": "odyssey-lift-off-workspace",
+      "prefix": "ng-lift-off",
       "targets": {
         "build": {
           "executor": "@angular-devkit/build-angular:browser",

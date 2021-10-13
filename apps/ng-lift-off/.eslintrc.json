@@ -13,7 +13,7 @@
           "error",
           {
             "type": "attribute",
-            "prefix": "odysseyLiftOffWorkspace",
+            "prefix": "ngLiftOff",
             "style": "camelCase"
           }
         ],
@@ -21,7 +21,7 @@
           "error",
           {
             "type": "element",
-            "prefix": "odyssey-lift-off-workspace",
+            "prefix": "ng-lift-off",
             "style": "kebab-case"
           }
         ]

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'odyssey-lift-off-workspace-root',
+  selector: 'ng-lift-off-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })

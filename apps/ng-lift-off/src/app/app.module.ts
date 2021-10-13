@@ -11,7 +11,22 @@ import { GraphQLModule } from './graphql.module';
     BrowserModule,
     HttpClientModule,
     GraphQLModule,
-    RouterModule.forRoot([], { initialNavigation: 'enabledBlocking' }),
+    RouterModule.forRoot(
+      [
+        {
+          path: '',
+          loadChildren: () =>
+            import('./pages/tracks/tracks.module').then((m) => m.TracksModule),
+        },
+        {
+          path: 'track',
+          loadChildren: () =>
+            import('./pages/track/track.module').then((m) => m.TrackModule),
+        },
+        { path: '**', redirectTo: '/', pathMatch: 'full' },
+      ],
+      { initialNavigation: 'enabledBlocking' }
+    ),
   ],
   providers: [],
   bootstrap: [AppComponent],
