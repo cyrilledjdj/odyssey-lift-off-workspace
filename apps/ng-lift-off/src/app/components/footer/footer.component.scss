@@ -1,0 +1,20 @@
+.footer-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  color: #f25cc1;
+  margin-top: 30px;
+  height: 200px;
+  padding: 20px;
+  background-color: white;
+  border-top: solid 1px #ffa3e0;
+}
+
+.logo-container {
+  height: 40px;
+  margin-left: 5px;
+  svg {
+    height: 40px;
+  }
+}

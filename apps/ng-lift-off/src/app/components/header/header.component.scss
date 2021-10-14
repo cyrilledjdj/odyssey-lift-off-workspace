@@ -1,0 +1,60 @@
+.header-bar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  border-bottom: solid 1px #ffa3e0;
+  box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.15);
+  padding: 5px 30px;
+  min-height: 80px;
+  background-color: white;
+}
+
+.container {
+  width: 100%;
+}
+
+.home {
+  &-link {
+    text-decoration: none;
+  }
+  &-button-container {
+    display: flex;
+    flex: 1;
+  }
+  &-button {
+    display: flex;
+    flex-direction: row;
+    color: #f25cc1;
+    align-items: center;
+    &:hover {
+      color: #c43997;
+    }
+  }
+}
+
+.logo {
+  &-container {
+    display: flex;
+    align-self: center;
+  }
+
+  height: 60px;
+  width: 60px;
+  margin-right: 8px;
+  background-image: url('../../../assets/space_cat_logo.png');
+}
+
+.title {
+  display: flex;
+  flex-direction: column;
+  h3 {
+    line-height: 1em;
+    margin-bottom: 0;
+  }
+  div {
+    font-size: 0.9em;
+    line-height: 0.8em;
+    padding-left: 2px;
+  }
+}

@@ -1,1 +1,18 @@
-<p>header works!</p>
+<div class="header-bar">
+  <div class="container">
+    <div class="home-button-container">
+      <a class="home-link" [routerLink]="['/']">
+        <div class="home-button">
+          <span class="logo-container">
+            <span class="logo"></span>
+          </span>
+          <div class="title">
+            <h3>Catstronaut</h3>
+            <div>Kitty space academy</div>
+          </div>
+        </div>
+      </a>
+    </div>
+    <ng-content></ng-content>
+  </div>
+</div>
