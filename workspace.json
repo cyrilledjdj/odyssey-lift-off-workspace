@@ -70,6 +70,7 @@
             "inlineStyleLanguage": "scss",
             "assets": [
               "apps/ng-lift-off/src/favicon.ico",
+              "apps/ng-lift-off/src/manifest.json",
               "apps/ng-lift-off/src/assets"
             ],
             "styles": ["apps/ng-lift-off/src/styles.scss"],
