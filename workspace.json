@@ -80,7 +80,9 @@
             "namedChunks": true,
             "vendorChunk": true,
             "extractCss": true,
-            "outputHashing": "all"
+            "outputHashing": "all",
+            "baseHref": "/",
+            "deployUrl": ""
           },
           "configurations": {
             "production": {
