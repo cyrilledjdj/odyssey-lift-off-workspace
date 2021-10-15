@@ -1,0 +1,95 @@
+.card {
+  &-container {
+    border-radius: 6px;
+    color: #191c23;
+    background-size: cover;
+    background-color: white;
+    box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.15);
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 380px;
+    margin: 10px;
+    overflow: hidden;
+    position: relative;
+    :hover {
+      background-color: #ffe6f7;
+    }
+    cursor: pointer;
+    text-decoration: none;
+  }
+  &-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 100%;
+  }
+  &-title {
+    text-align: center;
+    font-size: 1.4em;
+    line-height: 1em;
+    font-weight: 700;
+    color: #191c23;
+    flex: 1;
+  }
+
+  &-image {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    filter: grayscale(60%);
+    &-container {
+      height: 220px;
+      position: relative;
+      &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: rgba(250, 0, 150, 0.2);
+      }
+    }
+  }
+
+  &-body {
+    padding: 18px;
+    flex: 1;
+    display: flex;
+    color: #5a6270;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+
+  &-footer {
+    display: flex;
+    flex-direction: row;
+  }
+}
+
+.author {
+  &-image {
+    height: 30px;
+    width: 30px;
+    margin-right: 8px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  &-and-track {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  &-name {
+    line-height: 1em;
+    font-size: 1.1em;
+  }
+}
+
+.track-length {
+  font-size: 0.8em;
+}

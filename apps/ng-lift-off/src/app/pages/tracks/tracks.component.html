@@ -1,5 +1,12 @@
 <ng-lift-off-layout [fluid]="true">
   <ng-lift-off-header></ng-lift-off-header>
-  tracks work!
+  <ng-lift-off-query-result [loading]="loading" [error]="error" [data]="data">
+    <ng-lift-off-track-card
+      *ngFor="let item of [data]; let i = index"
+      [track]="item"
+    >
+    </ng-lift-off-track-card>
+    <ng-lift-off-track-card></ng-lift-off-track-card>
+  </ng-lift-off-query-result>
   <ng-lift-off-footer></ng-lift-off-footer>
 </ng-lift-off-layout>

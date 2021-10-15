@@ -1,1 +1,19 @@
-<p>query-result works!</p>
+<ng-container *ngIf="error; else loader">
+  <p>ERROR: {{ error?.message }}</p>
+</ng-container>
+<ng-template #loader>
+  <ng-container *ngIf="loading; else dataC">
+    <div class="spinner-container">
+      <div class="loading-spinner"></div>
+    </div>
+  </ng-container>
+</ng-template>
+<ng-template #dataC>
+  <div [ngSwitch]="!!data">
+    <ng-template [ngSwitchCase]="true">
+    </ng-template>
+    <ng-template [ngSwitchCase]="false">
+      <p class="no-data">Nothing to show...</p>
+    </ng-template>
+  </div>
+</ng-template>
