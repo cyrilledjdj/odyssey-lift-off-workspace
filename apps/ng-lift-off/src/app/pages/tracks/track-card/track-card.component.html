@@ -1,25 +1,21 @@
 <a
   class="card-container"
   [routerLink]="['/track/', id]"
-  (click)="incrementTrackViews($event)"
+  (click)="incrementTrackViews($event, id)"
 >
   <div class="card-content">
     <div class="card-image-container">
-      <div
-        class="card-image"
-        [attr.src]="thumbnail"
-        [attr.altText]="title"
-      ></div>
+      <img class="card-image" [attr.src]="thumbnail" [attr.altText]="title" />
     </div>
     <div class="card-body">
       <div class="card-title">{{ title }}</div>
       <div class="card-footer">
-        <img [attr.src]="author?.photo" />
+        <img class="author-image" [attr.src]="author?.photo" />
         <div class="author-and-track">
-          <div class="author-name">{{author?.name}}</div>
+          <div class="author-name">{{ author?.name }}</div>
           <div class="track-length">
             {{ modulesCount }} modules -
-            {{ humanReadableTimeFromSeconds(durationInSeconds) }}
+            {{ humanReadableTimeFromSeconds }}
           </div>
         </div>
       </div>

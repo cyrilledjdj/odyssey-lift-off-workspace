@@ -9,11 +9,12 @@
   </ng-container>
 </ng-template>
 <ng-template #dataC>
-  <div [ngSwitch]="!!data">
-    <ng-template [ngSwitchCase]="true">
-    </ng-template>
-    <ng-template [ngSwitchCase]="false">
+      <ng-content></ng-content>
+  <div [ngSwitch]="data.length">
+    <ng-template [ngSwitchCase]="0">
       <p class="no-data">Nothing to show...</p>
+    </ng-template>
+    <ng-template [NgSwitchDefault]>
     </ng-template>
   </div>
 </ng-template>

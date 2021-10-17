@@ -1,11 +1,28 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, HostBinding, Input } from '@angular/core';
+import { Apollo, gql } from 'apollo-angular';
+import { humanReadableTimeFromSeconds } from '@odyssey-lift-off-workspace/utils';
+
+const INCREMENT_TRACK_VIEWS = gql`
+  mutation IncrementTrackViewsMutation($incrementTrackViewsId: ID!) {
+    incrementTrackViews(id: $incrementTrackViewsId) {
+      code
+      success
+      message
+      track {
+        id
+        numberOfViews
+        title
+      }
+    }
+  }
+`;
 
 @Component({
   selector: 'ng-lift-off-track-card',
   templateUrl: './track-card.component.html',
   styleUrls: ['./track-card.component.scss'],
 })
-export class TrackCardComponent implements OnInit {
+export class TrackCardComponent {
   get id() {
     return this.track?.id;
   }
@@ -24,22 +41,22 @@ export class TrackCardComponent implements OnInit {
   get modulesCount() {
     return this.track?.modulesCount;
   }
-  get durationInSeconds() {
-    return this.track?.durationInSeconds;
+  get humanReadableTimeFromSeconds() {
+    return  humanReadableTimeFromSeconds(this.track?.durationInSeconds);
   }
   @Input() track: any;
 
-  ngOnInit(): void {
-    //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
-    //Add 'implements OnInit' to the class.
-    this.track;
-  }
+  constructor(private apollo: Apollo) {}
 
-  incrementTrackViews(event: Event) {
-    console.log(32);
-  }
-
-  humanReadableTimeFromSeconds(val: number) {
-    return 0;
+  incrementTrackViews(_: Event, incrementTrackViewsId: number) {
+    this.apollo
+      .mutate({
+        mutation: INCREMENT_TRACK_VIEWS,
+        variables: { incrementTrackViewsId },
+        onQueryUpdated: (data) => {
+          console.log('ng-lift-off', data);
+        },
+      })
+      .subscribe();
   }
 }

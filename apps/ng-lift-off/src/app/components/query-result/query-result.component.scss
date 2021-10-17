@@ -1,4 +1,9 @@
-
+:host {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
 .spinner-container {
   display: flex;
   justify-content: center;

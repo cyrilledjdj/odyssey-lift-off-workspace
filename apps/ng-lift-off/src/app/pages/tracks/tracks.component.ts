@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Apollo, gql } from 'apollo-angular';
 
 @Component({
   selector: 'ng-lift-off-tracks',
@@ -6,11 +7,36 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./tracks.component.scss'],
 })
 export class TracksComponent implements OnInit {
-  public loading = false;
-  public data = false;
-  public error = false;
+  public loading = true;
+  public data: any[] = [];
+  public error: any;
 
-  constructor() {}
+  constructor(private apollo: Apollo) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.apollo
+      .watchQuery({
+        query: gql`
+          query TracksQuery {
+            getTracks {
+              id
+              title
+              author {
+                photo
+                id
+                name
+              }
+              thumbnail
+              durationInSeconds
+              modulesCount
+            }
+          }
+        `,
+      })
+      .valueChanges.subscribe(({ loading, error, data }) => {
+        this.data = (data as any)?.getTracks || [];
+        this.loading = loading;
+        this.error = error;
+      });
+  }
 }

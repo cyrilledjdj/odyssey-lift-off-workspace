@@ -1,3 +1,27 @@
+:host {
+  display: flex;
+}
+
+@media (min-width: 380px) {
+  :host {
+    width: 60%;
+  }
+}
+@media (min-width: 680px) {
+  :host {
+    width: 50%;
+  }
+}
+@media (min-width: 980px) {
+  :host {
+    width: 50%;
+  }
+}
+@media (min-width: 1200px) {
+  :host {
+    width: 33%;
+  }
+}
 .card {
   &-container {
     border-radius: 6px;
@@ -10,7 +34,8 @@
     flex-direction: column;
     justify-content: space-between;
     height: 380px;
-    margin: 10px;
+    width: 100%;
+    margin: 20px;
     overflow: hidden;
     position: relative;
     :hover {
