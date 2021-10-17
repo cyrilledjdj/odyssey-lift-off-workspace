@@ -1,0 +1,48 @@
+<div class="modules-nav-container">
+  <div class="module-title">
+    <h4>
+      <a [routerLink]="['../..']">{{ track?.title }}</a>
+    </h4>
+  </div>
+  <ul class="modules-list">
+    <li class="module-list-item" *ngFor="let navModule of track?.modules">
+      <a class="module-nav-styled-link" [routerLink]="['../' + navModule.id]">
+        <div
+          class="module-list-item-content"
+          [style.color]="
+            hovered === navModule.id
+              ? 'white'
+              : navModule.id === module?.id
+              ? '#FCFDFF'
+              : '#CAD0D8'
+          "
+          [style.background-color]="
+            navModule.id === module?.id
+              ? hovered === navModule.id
+                ? '#14171C'
+                : '#191C23'
+              : hovered === navModule.id
+              ? '#191C23'
+              : '#22262E'
+          "
+          (mouseenter)="hovered = navModule.id"
+          (mouseleave)="hovered = false"
+        >
+          <span
+            *ngif="navModule.id === module?.id"
+            class="IconDoubleArrowRight"
+            width="14px"
+          ></span>
+          <span
+            *ngif="navModule.id !== module?.id"
+            class="IconArrowRight"
+            width="14px"
+            weight="thin"
+          ></span>
+          <div>{{ navModule.title }}</div>
+          <div>{{ formatDuration(navModule.durationInSeconds) }}</div>
+        </div>
+      </a>
+    </li>
+  </ul>
+</div>

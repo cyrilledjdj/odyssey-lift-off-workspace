@@ -1,1 +1,22 @@
-<p>module-detail works!</p>
+<ng-container>
+  <div class="top-section">
+    <div class="top-container">
+      <div class="player-container">
+        <youtube-player
+          [videoId]="formatVideoUrl(module?.videoUrl)"
+        ></youtube-player>
+      </div>
+      <ng-lift-off-modules-navigation
+        [track]="track"
+        [module]="module"
+      ></ng-lift-off-modules-navigation>
+    </div>
+  </div>
+  <ng-lift-off-content-sections>
+    <div class="module-title">{{ module?.title }}</div>
+    <ng-lift-off-md-content
+      *ngIf="!!module"
+      [content]="module.content"
+    ></ng-lift-off-md-content>
+  </ng-lift-off-content-sections>
+</ng-container>

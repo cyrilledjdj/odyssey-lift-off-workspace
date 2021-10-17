@@ -1,0 +1,35 @@
+.top {
+  &-section {
+    display: flex;
+    justify-content: center;
+    background-color: #191c23;
+    padding: 20px;
+    border-bottom: #f25cc1;
+  }
+  &-container {
+    display: flex;
+    flex-direction: row;
+    align-self: center;
+    width: 100%;
+    max-width: 1600px;
+    height: #{((1200 - 60) * (2 / 3)) / (16 / 9)}px;
+    max-height: #{(1600 * (2 / 3)) / (16 / 9)};
+  }
+}
+
+.player-container {
+  display: flex;
+  width: 66%;
+  > * {
+    display: flex;
+    width: 100%;
+  }
+}
+
+.module-title {
+  margin-top: 10px;
+  margin-bottom: 30px;
+  padding-bottom: 10px;
+  color: #2f353f;
+  border-bottom: 1px solid #f25cc1;
+}

@@ -62,7 +62,7 @@ const ModuleTitle = styled.div({
   alignItems: 'center',
   justifyContent: 'center',
   textAlign: 'center',
-  backgroundColor: 'colors.pink.base',
+  backgroundColor: colors.pink.base,
   borderBottom: `solid 1px ${colors.pink.base}`,
 
   a: {

@@ -8,7 +8,7 @@ import { TracksService } from './tracks.service';
 })
 export class TracksComponent implements OnInit {
   public loading = true;
-  public data: any[] = [];
+  public data: any;
   public error: any;
 
   constructor(private allTracksGQL: TracksService) {}
@@ -17,7 +17,7 @@ export class TracksComponent implements OnInit {
     this.allTracksGQL
       .watch()
       .valueChanges.subscribe(({ loading, error, data }) => {
-        this.data = (data as any)?.getTracks || [];
+        this.data = (data as any)?.getTracks;
         this.loading = loading;
         this.error = error;
       });

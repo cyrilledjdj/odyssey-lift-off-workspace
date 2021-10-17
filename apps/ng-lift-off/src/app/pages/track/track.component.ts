@@ -11,7 +11,7 @@ import { TrackIDInfoService } from './trackID.service';
 })
 export class TrackComponent implements OnInit {
   public loading = true;
-  public data: any = [];
+  public data: any;
   public error: any;
 
   public refresher: any;

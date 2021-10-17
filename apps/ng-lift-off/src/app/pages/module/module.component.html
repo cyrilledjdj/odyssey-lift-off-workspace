@@ -1,5 +1,10 @@
 <ng-lift-off-layout [fluid]="true">
   <ng-lift-off-header></ng-lift-off-header>
-  modules works
+  <ng-lift-off-query-result [loading]="loading" [error]="error" [data]="data">
+    <ng-lift-off-module-detail
+      [module]="data?.module"
+      [track]="data?.track"
+    >Hello</ng-lift-off-module-detail>
+  </ng-lift-off-query-result>
   <ng-lift-off-footer></ng-lift-off-footer>
 </ng-lift-off-layout>

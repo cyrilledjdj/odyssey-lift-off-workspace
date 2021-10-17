@@ -8,7 +8,7 @@ import { ModuleComponent } from './module.component';
 
 @NgModule({
   declarations: [
-    ModuleComponent
+    ModuleComponent,
   ],
   imports: [
     CommonModule,

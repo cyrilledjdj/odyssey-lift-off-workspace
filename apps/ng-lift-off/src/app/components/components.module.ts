@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { YouTubePlayerModule } from '@angular/youtube-player';
 import { MarkdownModule } from 'ngx-markdown';
 import { ContentSectionsComponent } from './content-sections/content-sections.component';
 import { FooterComponent } from './footer/footer.component';
@@ -9,6 +10,7 @@ import { LayoutComponent } from './layout/layout.component';
 import { MdContentComponent } from './md-content/md-content.component';
 import { ModuleDetailComponent } from './module-detail/module-detail.component';
 import { QueryResultComponent } from './query-result/query-result.component';
+import { ModulesNavigationComponent } from './modules-navigation/modules-navigation.component';
 
 
 
@@ -20,7 +22,8 @@ import { QueryResultComponent } from './query-result/query-result.component';
     LayoutComponent,
     ModuleDetailComponent,
     QueryResultComponent,
-    MdContentComponent
+    MdContentComponent,
+    ModulesNavigationComponent
   ],
   exports: [
     ContentSectionsComponent,
@@ -29,11 +32,13 @@ import { QueryResultComponent } from './query-result/query-result.component';
     LayoutComponent,
     ModuleDetailComponent,
     QueryResultComponent,
-    MdContentComponent
+    MdContentComponent,
+    ModulesNavigationComponent
   ],
   imports: [
     CommonModule,
     RouterModule,
+    YouTubePlayerModule,
     MarkdownModule.forChild(),
   ]
 })
