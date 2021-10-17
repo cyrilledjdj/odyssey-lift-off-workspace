@@ -7,7 +7,7 @@ import {
   IconTime,
   IconBook,
 } from '../styles';
-import { humanReadableTimeFromSeconds } from '../utils/helpers';
+import { humanReadableTimeFromSeconds } from '@odyssey-lift-off-workspace/utils';
 import { Link } from '@reach/router';
 import ContentSection from './content-section';
 import MarkDown from './md-content';

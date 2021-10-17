@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 import { Link } from '@reach/router';
 import { environment } from '../../environments/environment';
 import { colors, mq } from '../styles';
-import { humanReadableTimeFromSeconds } from '../utils/helpers';
+import { humanReadableTimeFromSeconds } from '@odyssey-lift-off-workspace/utils';
 
 const INCREMENT_TRACK_VIEWS = gql`
   mutation IncrementTrackViewsMutation($incrementTrackViewsId: ID!) {

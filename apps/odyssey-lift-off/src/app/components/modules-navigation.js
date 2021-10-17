@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 import { Link } from '@reach/router';
 import { colors, IconArrowRight, IconDoubleArrowRight } from '../styles';
-import { humanReadableTimeFromSeconds } from '../utils/helpers';
+import { humanReadableTimeFromSeconds } from '@odyssey-lift-off-workspace/utils';
 
 /**
  * Module Navigation: displays a list of modules titles

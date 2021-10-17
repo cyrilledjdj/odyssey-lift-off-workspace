@@ -43,6 +43,9 @@
     "odyssey-lift-off-e2e": {
       "tags": [],
       "implicitDependencies": ["odyssey-lift-off"]
+    },
+    "utils": {
+      "tags": []
     }
   }
 }
