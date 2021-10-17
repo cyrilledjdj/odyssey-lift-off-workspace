@@ -1,5 +1,7 @@
 <ng-lift-off-layout>
   <ng-lift-off-header></ng-lift-off-header>
-  track work!
+  <ng-lift-off-query-result [loading]="loading" [error]="error" [data]="data">
+    <ng-lift-off-track-detail [track]="data"></ng-lift-off-track-detail>
+  </ng-lift-off-query-result>
   <ng-lift-off-footer></ng-lift-off-footer>
 </ng-lift-off-layout>

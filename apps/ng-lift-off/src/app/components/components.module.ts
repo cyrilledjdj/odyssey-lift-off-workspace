@@ -1,10 +1,12 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { MarkdownModule } from 'ngx-markdown';
 import { ContentSectionsComponent } from './content-sections/content-sections.component';
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 import { LayoutComponent } from './layout/layout.component';
+import { MdContentComponent } from './md-content/md-content.component';
 import { ModuleDetailComponent } from './module-detail/module-detail.component';
 import { QueryResultComponent } from './query-result/query-result.component';
 
@@ -17,7 +19,8 @@ import { QueryResultComponent } from './query-result/query-result.component';
     HeaderComponent,
     LayoutComponent,
     ModuleDetailComponent,
-    QueryResultComponent
+    QueryResultComponent,
+    MdContentComponent
   ],
   exports: [
     ContentSectionsComponent,
@@ -25,11 +28,13 @@ import { QueryResultComponent } from './query-result/query-result.component';
     HeaderComponent,
     LayoutComponent,
     ModuleDetailComponent,
-    QueryResultComponent
+    QueryResultComponent,
+    MdContentComponent
   ],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    MarkdownModule.forChild(),
   ]
 })
 export class ComponentsModule { }

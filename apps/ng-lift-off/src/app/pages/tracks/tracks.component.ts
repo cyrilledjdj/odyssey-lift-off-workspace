@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Apollo, gql } from 'apollo-angular';
+import { TracksService } from './tracks.service';
 
 @Component({
   selector: 'ng-lift-off-tracks',
@@ -11,28 +11,11 @@ export class TracksComponent implements OnInit {
   public data: any[] = [];
   public error: any;
 
-  constructor(private apollo: Apollo) {}
+  constructor(private allTracksGQL: TracksService) {}
 
   ngOnInit(): void {
-    this.apollo
-      .watchQuery({
-        query: gql`
-          query TracksQuery {
-            getTracks {
-              id
-              title
-              author {
-                photo
-                id
-                name
-              }
-              thumbnail
-              durationInSeconds
-              modulesCount
-            }
-          }
-        `,
-      })
+    this.allTracksGQL
+      .watch()
       .valueChanges.subscribe(({ loading, error, data }) => {
         this.data = (data as any)?.getTracks || [];
         this.loading = loading;

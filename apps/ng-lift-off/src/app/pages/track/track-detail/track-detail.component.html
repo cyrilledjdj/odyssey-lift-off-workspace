@@ -1,0 +1,55 @@
+<ng-lift-off-content-sections>
+  <img class="cover-image" [attr.src]="track?.thumbnail" />
+  <div class="track-details">
+    <div class="detail-row">
+      <h1>{{ track?.title }}</h1>
+    </div>
+    <div class="detail-row">
+      <div class="detail-item">
+        <h4>Track details</h4>
+        <div class="icon-and-label">
+          <span class="icon-view" width="16px"></span>
+          <div id="viewCount">{{ track?.numberOfViews }} view(s)</div>
+        </div>
+        <div class="icon-and-label">
+          <span class="icon-book" width="14px" height="14px"></span>
+          <div>{{ track?.modulesCount }} modules</div>
+        </div>
+        <div class="icon-and-label">
+          <span class="icon-time" width="14px"></span>
+          <div>{{ durationInSeconds }}</div>
+        </div>
+      </div>
+      <div class="detail-item">
+        <h4>Author</h4>
+        <img class="author-image" [attr.src]="track?.author?.photo" />
+        <div class="author-name">{{ track?.author?.name }}</div>
+      </div>
+      <div>
+        <a
+          *ngIf="track?.modules?.length"
+          class="styled-link"
+          [routerLink]="['./module/' + track?.modules[0].id]"
+        >
+          <button>Start Track</button>
+        </a>
+      </div>
+    </div>
+    <div class="module-list-container">
+      <div class="detail-item">
+        <h4>Modules</h4>
+        <ul>
+          <li *ngFor="let module of track?.modules; let i = index">
+            <div>{{ module.title }}</div>
+            <div class="module-length">
+              {{ format(module.durationInSeconds) }}
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <ng-lift-off-md-content
+    [content]="track?.description"
+  ></ng-lift-off-md-content>
+</ng-lift-off-content-sections>

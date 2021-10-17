@@ -4,9 +4,10 @@ import { ComponentsModule } from '../../components/components.module';
 import { ModuleModule } from '../module/module.module';
 import { TrackRoutingModule } from './track-routing.module';
 import { TrackComponent } from './track.component';
+import { TrackDetailComponent } from './track-detail/track-detail.component';
 
 @NgModule({
-  declarations: [TrackComponent],
+  declarations: [TrackComponent, TrackDetailComponent],
   imports: [CommonModule, ComponentsModule, TrackRoutingModule, ModuleModule],
   exports: [TrackComponent],
 })
