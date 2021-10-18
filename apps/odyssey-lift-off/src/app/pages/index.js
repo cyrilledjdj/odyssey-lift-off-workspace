@@ -1,16 +1,16 @@
-import React, { Fragment } from 'react';
-import { Router } from '@reach/router';
+import React from 'react';
+import { Route, Switch } from 'react-router-dom';
+import Module from './module';
+import Track from './track';
 /** importing our pages */
 import Tracks from './tracks';
-import Track from './track';
-import Module from './module';
 
 export default function Pages() {
   return (
-    <Router primary={false} component={Fragment}>
-      <Tracks path="/" />
-      <Track path="/track/:trackId" />
-      <Module path="/track/:trackId/module/:moduleId" />
-    </Router>
+    <Switch>
+      <Route exact path="/track/:trackId/module/:moduleId" component={Module} />
+      <Route exact path="/track/:trackId" component={Track} />
+      <Route exact path="/" component={Tracks} />
+    </Switch>
   );
 }

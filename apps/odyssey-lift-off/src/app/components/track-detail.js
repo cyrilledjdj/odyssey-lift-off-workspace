@@ -8,7 +8,7 @@ import {
   IconBook,
 } from '../styles';
 import { humanReadableTimeFromSeconds } from '@odyssey-lift-off-workspace/utils';
-import { Link } from '@reach/router';
+import { Link } from 'react-router-dom';
 import ContentSection from './content-section';
 import MarkDown from './md-content';
 
@@ -19,6 +19,7 @@ import MarkDown from './md-content';
  */
 const TrackDetail = ({ track }) => {
   const {
+    id,
     title,
     description,
     thumbnail,
@@ -58,7 +59,7 @@ const TrackDetail = ({ track }) => {
             <AuthorName>{author.name}</AuthorName>
           </DetailItem>
           <div>
-            <StyledLink to={`./module/${modules[0]['id']}`}>
+            <StyledLink to={`./${id}/module/${modules[0]['id']}`}>
               <Button
                 icon={<IconRun width="20px" />}
                 color={colors.pink.base}

@@ -1,6 +1,6 @@
 import { gql, useMutation } from '@apollo/client';
 import styled from '@emotion/styled';
-import { Link } from '@reach/router';
+import { Link } from 'react-router-dom';
 import { environment } from '../../environments/environment';
 import { colors, mq } from '../styles';
 import { humanReadableTimeFromSeconds } from '@odyssey-lift-off-workspace/utils';

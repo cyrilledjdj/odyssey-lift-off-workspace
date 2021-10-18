@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { Link } from '@reach/router';
+import { Link } from 'react-router-dom';
 import { colors, IconArrowRight, IconDoubleArrowRight } from '../styles';
 import { humanReadableTimeFromSeconds } from '@odyssey-lift-off-workspace/utils';
 

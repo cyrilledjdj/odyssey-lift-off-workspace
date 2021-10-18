@@ -1,6 +1,7 @@
-import { ApolloProvider, ApolloClient, InMemoryCache } from '@apollo/client';
+import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
 import { StrictMode } from 'react';
 import * as ReactDOM from 'react-dom';
+import { BrowserRouter } from 'react-router-dom';
 import Pages from './app/pages';
 import GlobalStyles from './app/styles';
 import { environment } from './environments/environment';
@@ -14,7 +15,9 @@ ReactDOM.render(
   <StrictMode>
     <ApolloProvider client={client}>
       <GlobalStyles />
-      <Pages />
+      <BrowserRouter>
+        <Pages />
+      </BrowserRouter>
     </ApolloProvider>
   </StrictMode>,
   document.getElementById('root')
