@@ -50,11 +50,11 @@ async function startApolloServer(typeDefs, resolvers) {
   app.use(cors());
   app.use('/ng', express.static('dist/apps/ng-lift-off'));
   app.get('/ng/*', (_, res) => {
-    res.sendFile(path.join(__dirname, 'apps/ng-lift-off/index.html'));
+    res.sendFile(path.join(__dirname, '../ng-lift-off/index.html'));
   });
-  app.use('/', express.static(path.join(__dirname, 'apps/odyssey-lift-off')));
+  app.use('/', express.static('dist/apps/odyssey-lift-off'));
   app.get('*', (_, res) => {
-    res.sendFile(path.join(__dirname, 'apps/odyssey-lift-off/index.html'));
+    res.sendFile(path.join(__dirname, '../odyssey-lift-off/index.html'));
   });
   server.applyMiddleware({
     app,
