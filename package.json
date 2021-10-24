@@ -32,6 +32,7 @@
     "@nestjs/core": "^7.0.0",
     "@nestjs/graphql": "^9.1.1",
     "@nestjs/platform-express": "^7.0.0",
+    "@nestjs/serve-static": "^2.2.2",
     "apollo-angular": "^2.6.0",
     "apollo-angular-link-http": "^1.11.0",
     "apollo-cache-inmemory": "^1.6.6",
