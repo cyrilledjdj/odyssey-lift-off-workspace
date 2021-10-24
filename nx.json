@@ -30,6 +30,9 @@
     "api": {
       "tags": []
     },
+    "nest-api": {
+      "tags": []
+    },
     "ng-lift-off": {
       "tags": []
     },
