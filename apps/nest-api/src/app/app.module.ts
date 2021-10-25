@@ -5,8 +5,10 @@ import { join } from 'path';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { GqlConfigService } from './gqlconfig.service';
+import { TrackModule } from './track/track.module';
 @Module({
   imports: [
+    TrackModule,
     ServeStaticModule.forRoot(
       {
         rootPath: join(__dirname, '..', 'odyssey-lift-off'),

@@ -1,0 +1,99 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+"""An author is the creator of a track"""
+type Author {
+  id: ID!
+
+  """Author's first and last name"""
+  name: String!
+
+  """Author's profile picture url"""
+  photo: String
+}
+
+"""A type returned by our mutation queries"""
+type IncrementTrackViewsResponse {
+  code: Int!
+
+  """Human-readable message for the UI"""
+  message: String!
+
+  """The Module's title"""
+  success: Boolean!
+
+  """Newly updated track after a successful mutation"""
+  track: Track
+}
+
+"""
+A Module is a single unit of teaching. Multiple Modules compose a Track
+"""
+type Module {
+  """
+  The module's text-based description, can be in markdown format. In case of a video, it will be the enriched transcript
+  """
+  content: String
+
+  """The Module's video duration in seconds"""
+  durationInSeconds: Int
+  id: ID!
+
+  """The Module's title"""
+  title: String!
+
+  """The module's video url, for video-based modules"""
+  videoUrl: String
+}
+
+type Mutation {
+  incrementTrackViews(trackId: ID!): IncrementTrackViewsResponse!
+}
+
+type Query {
+  """Query to get an author by id"""
+  author(authorId: ID!): Author
+
+  """Query  to get tracks array for the homepage grid"""
+  getTracks: [Track!]!
+
+  """Query to get a module by id"""
+  module(moduleId: ID!): Module
+
+  """Query to get a track by id"""
+  track(trackId: ID!): Track
+}
+
+"""A track is a group of Modules that teaches about a specific topic"""
+type Track {
+  """Track's main Author"""
+  author: Author!
+
+  """The track's complete description, can be in Markdown format"""
+  description: String
+
+  """Track's duration in seconds"""
+  durationInSeconds: Int
+  id: ID!
+
+  """Track's approximate length to complete, in seconds"""
+  length: Int @deprecated(reason: "Use durationInSeconds instead")
+
+  """The track's complete array of Modules"""
+  modules: [Module!]!
+
+  """Number of modules the Track contains"""
+  modulesCount: Int
+
+  """The number of times a track has been viewed"""
+  numberOfViews: Int
+
+  """
+  Track's URL to main illustration to display in track card or track page
+  """
+  thumbnail: String
+
+  """Track's title"""
+  title: String!
+}
