@@ -48,21 +48,21 @@ type Module {
 }
 
 type Mutation {
-  incrementTrackViews(trackId: ID!): IncrementTrackViewsResponse!
+  incrementTrackViews(id: ID!): IncrementTrackViewsResponse!
 }
 
 type Query {
   """Query to get an author by id"""
-  author(authorId: ID!): Author
+  author(id: ID!): Author
 
   """Query  to get tracks array for the homepage grid"""
   getTracks: [Track!]!
 
   """Query to get a module by id"""
-  module(moduleId: ID!): Module
+  module(id: ID!): Module
 
   """Query to get a track by id"""
-  track(trackId: ID!): Track
+  track(id: ID!): Track
 }
 
 """A track is a group of Modules that teaches about a specific topic"""

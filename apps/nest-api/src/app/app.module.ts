@@ -11,12 +11,12 @@ import { TrackModule } from './track/track.module';
     TrackModule,
     ServeStaticModule.forRoot(
       {
-        rootPath: join(__dirname, '..', 'odyssey-lift-off'),
-      },
-      {
         rootPath: join(__dirname, '..', 'ng-lift-off'),
         serveRoot: '/ng',
-      }
+      },
+      {
+        rootPath: join(__dirname, '..', 'odyssey-lift-off'),
+      },
     ),
     GraphQLModule.forRootAsync({
       useClass: GqlConfigService,

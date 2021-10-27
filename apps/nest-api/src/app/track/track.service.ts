@@ -1,14 +1,10 @@
-import { Injectable } from '@nestjs/common';
-import { RESTDataSource } from 'apollo-datasource-rest';
+import { HttpService, Injectable } from '@nestjs/common';
 import { environment } from '../../environments/environment';
 
 @Injectable()
-export class TrackService extends RESTDataSource {
-  constructor() {
-    super();
-    this.baseURL = environment.baseUrl;
-  }
-
+export class TrackService {
+  private baseUrl = environment.baseUrl;
+  constructor(private readonly httpService: HttpService) {}
   /**
    *
    * @returns {Promise<any>}
@@ -60,5 +56,20 @@ export class TrackService extends RESTDataSource {
    */
   async incrementTrackViews(trackId) {
     return this.patch(`track/${trackId}/numberOfViews`);
+  }
+
+  private async get(location) {
+    const { data } = await this.httpService
+      .get(`${this.baseUrl}${location}`)
+      .toPromise();
+
+    return data;
+  }
+
+  private async patch(location) {
+    const { data } = await this.httpService
+      .patch(`${this.baseUrl}${location}`)
+      .toPromise();
+    return data;
   }
 }
