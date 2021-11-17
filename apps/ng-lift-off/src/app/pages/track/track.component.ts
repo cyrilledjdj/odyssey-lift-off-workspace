@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Apollo, gql } from 'apollo-angular';
+import { QueryRef } from 'apollo-angular';
 import { Subscription } from 'rxjs';
 import { TrackIDInfoService } from './trackID.service';
 
@@ -9,10 +9,12 @@ import { TrackIDInfoService } from './trackID.service';
   templateUrl: './track.component.html',
   styleUrls: ['./track.component.scss'],
 })
-export class TrackComponent implements OnInit {
+export class TrackComponent implements OnInit, OnDestroy {
   public loading = true;
   public data: any;
   public error: any;
+  private tracksQuery: QueryRef<any> | undefined;
+  private querySubscription: Subscription | undefined;
 
   public refresher: any;
 
@@ -24,15 +26,24 @@ export class TrackComponent implements OnInit {
   ngOnInit(): void {
     this.route.params.subscribe(({ trackId }) => {
       if (trackId) {
-        this.refresher = this.trackIdGQL.watch({ trackId });
-        this.trackIdGQL
-          .watch({ trackId })
-          .valueChanges.subscribe(({ loading, error, data }) => {
+        this.tracksQuery = this.trackIdGQL.watch(
+          { trackId },
+          { pollInterval: 500 }
+        );
+        this.querySubscription = this.tracksQuery.valueChanges.subscribe(
+          ({ loading, error, data }) => {
             this.loading = loading;
             this.error = error;
-            this.data = (data as any)?.track;
-          });
+            this.data = data?.track;
+          }
+        );
       }
     });
+  }
+
+  ngOnDestroy(): void {
+    //Called once, before the instance is destroyed.
+    //Add 'implements OnDestroy' to the class.
+    this.querySubscription?.unsubscribe();
   }
 }
