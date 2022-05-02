@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { RouterTestingModule } from '@angular/router/testing';
 import { TrackComponent } from './track.component';
 
 describe('TrackComponent', () => {
@@ -8,9 +8,9 @@ describe('TrackComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TrackComponent ]
-    })
-    .compileComponents();
+      declarations: [TrackComponent],
+      imports: [RouterTestingModule],
+    }).compileComponents();
   });
 
   beforeEach(() => {
