@@ -1,0 +1,29 @@
+{
+  "root": "apps/odyssey-lift-off-e2e",
+  "sourceRoot": "apps/odyssey-lift-off-e2e/src",
+  "projectType": "application",
+  "targets": {
+    "e2e": {
+      "executor": "@nrwl/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/odyssey-lift-off-e2e/cypress.json",
+        "devServerTarget": "odyssey-lift-off:serve",
+        "tsConfig": "apps/odyssey-lift-off-e2e/tsconfig.json"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "odyssey-lift-off:serve:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/odyssey-lift-off-e2e/**/*.{js,ts}"]
+      }
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["odyssey-lift-off"]
+}

@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { ModuleDetailComponent } from './module-detail.component';
 
 describe('ModuleDetailComponent', () => {
@@ -8,14 +7,14 @@ describe('ModuleDetailComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ModuleDetailComponent ]
-    })
-    .compileComponents();
+      declarations: [ModuleDetailComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(ModuleDetailComponent);
     component = fixture.componentInstance;
+    component.module = { videoUrl: '', title: '' };
     fixture.detectChanges();
   });
 

@@ -1,0 +1,117 @@
+{
+  "projectType": "application",
+  "root": "apps/ng-lift-off",
+  "sourceRoot": "apps/ng-lift-off/src",
+  "prefix": "ng-lift-off",
+  "targets": {
+    "build": {
+      "executor": "@angular-devkit/build-angular:browser",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/ng-lift-off",
+        "index": "apps/ng-lift-off/src/index.html",
+        "main": "apps/ng-lift-off/src/main.ts",
+        "polyfills": "apps/ng-lift-off/src/polyfills.ts",
+        "tsConfig": "apps/ng-lift-off/tsconfig.app.json",
+        "inlineStyleLanguage": "scss",
+        "assets": [
+          "apps/ng-lift-off/src/favicon.ico",
+          "apps/ng-lift-off/src/manifest.json",
+          "apps/ng-lift-off/src/assets"
+        ],
+        "styles": [
+          "apps/ng-lift-off/src/styles.scss",
+          "node_modules/prismjs/themes/prism-okaidia.css",
+          "node_modules/prismjs/plugins/line-numbers/prism-line-numbers.css"
+        ],
+        "scripts": [
+          "node_modules/marked/lib/marked.cjs",
+          "node_modules/prismjs/prism.js",
+          "node_modules/prismjs/components/prism-csharp.min.js",
+          "node_modules/prismjs/components/prism-css.min.js",
+          "node_modules/prismjs/plugins/line-numbers/prism-line-numbers.js"
+        ],
+        "aot": true,
+        "buildOptimizer": true,
+        "sourceMap": true,
+        "namedChunks": true,
+        "vendorChunk": true,
+        "outputHashing": "all",
+        "baseHref": "/"
+      },
+      "configurations": {
+        "production": {
+          "sourceMap": false,
+          "namedChunks": false,
+          "baseHref": "/ng",
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "1mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "2kb",
+              "maximumError": "4kb"
+            }
+          ],
+          "fileReplacements": [
+            {
+              "replace": "apps/ng-lift-off/src/environments/environment.ts",
+              "with": "apps/ng-lift-off/src/environments/environment.prod.ts"
+            }
+          ],
+          "outputHashing": "all"
+        },
+        "development": {
+          "buildOptimizer": false,
+          "optimization": false,
+          "vendorChunk": true,
+          "extractLicenses": false,
+          "sourceMap": true,
+          "namedChunks": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@angular-devkit/build-angular:dev-server",
+      "configurations": {
+        "production": {
+          "browserTarget": "ng-lift-off:build:production",
+          "port": 4201
+        },
+        "development": {
+          "browserTarget": "ng-lift-off:build:development",
+          "port": 4201
+        }
+      },
+      "defaultConfiguration": "development"
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "browserTarget": "ng-lift-off:build"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "apps/ng-lift-off/src/**/*.ts",
+          "apps/ng-lift-off/src/**/*.html"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/ng-lift-off"],
+      "options": {
+        "jestConfig": "apps/ng-lift-off/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}
