@@ -50,7 +50,8 @@
             "passWithNoTests": true
           }
         }
-      }
+      },
+      "tags": []
     },
     "nest-api": {
       "root": "apps/nest-api",
@@ -101,7 +102,8 @@
             "passWithNoTests": true
           }
         }
-      }
+      },
+      "tags": []
     },
     "ng-lift-off": {
       "projectType": "application",
@@ -220,7 +222,8 @@
             "passWithNoTests": true
           }
         }
-      }
+      },
+      "tags": []
     },
     "ng-lift-off-e2e": {
       "root": "apps/ng-lift-off-e2e",
@@ -246,7 +249,9 @@
             "lintFilePatterns": ["apps/ng-lift-off-e2e/**/*.{js,ts}"]
           }
         }
-      }
+      },
+      "tags": [],
+      "implicitDependencies": ["ng-lift-off"]
     },
     "odyssey-lift-off": {
       "root": "apps/odyssey-lift-off",
@@ -327,7 +332,8 @@
             "passWithNoTests": true
           }
         }
-      }
+      },
+      "tags": []
     },
     "odyssey-lift-off-e2e": {
       "root": "apps/odyssey-lift-off-e2e",
@@ -354,7 +360,9 @@
             "lintFilePatterns": ["apps/odyssey-lift-off-e2e/**/*.{js,ts}"]
           }
         }
-      }
+      },
+      "tags": [],
+      "implicitDependencies": ["odyssey-lift-off"]
     },
     "utils": {
       "root": "libs/utils",
@@ -376,41 +384,8 @@
             "passWithNoTests": true
           }
         }
-      }
-    }
-  },
-  "cli": {
-    "defaultCollection": "@nrwl/react"
-  },
-  "generators": {
-    "@nrwl/react": {
-      "application": {
-        "style": "scss",
-        "linter": "eslint",
-        "babel": true
       },
-      "component": {
-        "style": "scss"
-      },
-      "library": {
-        "style": "scss",
-        "linter": "eslint"
-      }
-    },
-    "@nrwl/angular:application": {
-      "style": "scss",
-      "linter": "eslint",
-      "unitTestRunner": "jest",
-      "e2eTestRunner": "cypress"
-    },
-    "@nrwl/angular:library": {
-      "style": "scss",
-      "linter": "eslint",
-      "unitTestRunner": "jest"
-    },
-    "@nrwl/angular:component": {
-      "style": "scss"
+      "tags": []
     }
-  },
-  "defaultProject": "odyssey-lift-off"
+  }
 }
