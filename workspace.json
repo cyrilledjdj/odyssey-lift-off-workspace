@@ -3,10 +3,10 @@
   "projects": {
     "api": "apps/api",
     "nest-api": "apps/nest-api",
-    "odyssey-lift-off": "apps/odyssey-lift-off",
-    "odyssey-lift-off-e2e": "apps/odyssey-lift-off-e2e",
     "ng-lift-off": "apps/ng-lift-off",
     "ng-lift-off-e2e": "apps/ng-lift-off-e2e",
+    "odyssey-lift-off": "apps/odyssey-lift-off",
+    "odyssey-lift-off-e2e": "apps/odyssey-lift-off-e2e",
     "utils": "libs/utils"
   }
 }
