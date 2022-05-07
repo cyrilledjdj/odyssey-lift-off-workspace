@@ -107,7 +107,7 @@
       "executor": "@nrwl/jest:jest",
       "outputs": ["coverage/apps/ng-lift-off"],
       "options": {
-        "jestConfig": "apps/ng-lift-off/jest.config.js",
+        "jestConfig": "apps/ng-lift-off/jest.config.ts",
         "passWithNoTests": true
       }
     }

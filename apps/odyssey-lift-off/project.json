@@ -83,7 +83,7 @@
       "executor": "@nrwl/jest:jest",
       "outputs": ["coverage/apps/odyssey-lift-off"],
       "options": {
-        "jestConfig": "apps/odyssey-lift-off/jest.config.js",
+        "jestConfig": "apps/odyssey-lift-off/jest.config.ts",
         "passWithNoTests": true
       }
     }
