@@ -1,6 +1,5 @@
 {
   "projectType": "application",
-  "root": "apps/ng-lift-off",
   "sourceRoot": "apps/ng-lift-off/src",
   "prefix": "ng-lift-off",
   "targets": {

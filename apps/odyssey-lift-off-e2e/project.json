@@ -1,5 +1,4 @@
 {
-  "root": "apps/odyssey-lift-off-e2e",
   "sourceRoot": "apps/odyssey-lift-off-e2e/src",
   "projectType": "application",
   "targets": {

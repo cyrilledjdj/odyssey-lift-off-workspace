@@ -1,5 +1,4 @@
 {
-  "root": "apps/ng-lift-off-e2e",
   "sourceRoot": "apps/ng-lift-off-e2e/src",
   "projectType": "application",
   "targets": {
