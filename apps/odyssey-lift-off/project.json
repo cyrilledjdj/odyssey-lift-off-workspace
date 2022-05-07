@@ -45,8 +45,15 @@
               "maximumError": "1mb"
             }
           ]
+        },
+        "development": {
+          "extractLicenses": false,
+          "optimization": false,
+          "sourceMap": true,
+          "vendorChunk": true
         }
-      }
+      },
+      "defaultConfiguration": "production"
     },
     "serve": {
       "executor": "@nrwl/web:dev-server",
@@ -58,8 +65,12 @@
         "production": {
           "buildTarget": "odyssey-lift-off:build:production",
           "hmr": false
+        },
+        "development": {
+          "buildTarget": "odyssey-lift-off:build:development"
         }
-      }
+      },
+      "defaultConfiguration": "development"
     },
     "lint": {
       "executor": "@nrwl/linter:eslint",
