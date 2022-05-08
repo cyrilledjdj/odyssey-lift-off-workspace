@@ -1,11 +1,12 @@
+import { ApolloDriverConfig } from '@nestjs/apollo';
 import { Injectable } from '@nestjs/common';
-import { GqlModuleOptions, GqlOptionsFactory } from '@nestjs/graphql';
+import { GqlOptionsFactory } from '@nestjs/graphql';
 import { join } from 'path';
 import { environment } from '../environments/environment';
 
 @Injectable()
 export class GqlConfigService implements GqlOptionsFactory {
-  createGqlOptions(): GqlModuleOptions {
+  createGqlOptions(): ApolloDriverConfig {
     return {
       path: '/api',
       autoSchemaFile: join(process.cwd(), 'schema.gql'),

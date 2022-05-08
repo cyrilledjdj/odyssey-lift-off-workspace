@@ -2,9 +2,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
+import { ApolloModule } from 'apollo-angular';
+import { MarkdownModule } from 'ngx-markdown';
 import { AppComponent } from './app.component';
 import { GraphQLModule } from './graphql.module';
-import { MarkdownModule } from 'ngx-markdown';
 
 @NgModule({
   declarations: [AppComponent],
@@ -12,6 +13,7 @@ import { MarkdownModule } from 'ngx-markdown';
     BrowserModule,
     HttpClientModule,
     GraphQLModule,
+    ApolloModule,
     RouterModule.forRoot(
       [
         {
