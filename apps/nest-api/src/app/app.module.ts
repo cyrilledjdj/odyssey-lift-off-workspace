@@ -14,10 +14,11 @@ import { TrackModule } from './track/track.module';
       {
         rootPath: join(__dirname, '..', 'ng-lift-off'),
         serveRoot: '/ng',
+
       },
       {
         rootPath: join(__dirname, '..', 'odyssey-lift-off'),
-        exclude: ['/api'],
+        exclude: ['/api*'],
       }
     ),
     GraphQLModule.forRootAsync<ApolloDriverConfig>({

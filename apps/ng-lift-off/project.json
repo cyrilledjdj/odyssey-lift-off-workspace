@@ -36,13 +36,13 @@
         "namedChunks": true,
         "vendorChunk": true,
         "outputHashing": "all",
-        "baseHref": "/"
+        "baseHref": "/ng",
+        "deployUrl": "ng/"
       },
       "configurations": {
         "production": {
           "sourceMap": false,
           "namedChunks": false,
-          "baseHref": "/ng",
           "budgets": [
             {
               "type": "initial",
@@ -69,6 +69,7 @@
           "vendorChunk": true,
           "extractLicenses": false,
           "sourceMap": true,
+          "outputHashing": "none",
           "namedChunks": true
         }
       },
