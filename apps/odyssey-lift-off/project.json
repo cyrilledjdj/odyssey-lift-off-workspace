@@ -19,7 +19,7 @@
         ],
         "styles": ["apps/odyssey-lift-off/src/styles.scss"],
         "scripts": [],
-        "webpackConfig": "@nrwl/react/plugins/webpack",
+        "webpackConfig": "apps/odyssey-lift-off/webpack.config.js",
         "baseHref": "/",
         "deployUrl": ""
       },
@@ -32,8 +32,8 @@
             }
           ],
           "optimization": true,
-          "outputHashing": "all",
-          "sourceMap": false,
+          "outputHashing": "none",
+          "sourceMap": true,
           "extractCss": true,
           "namedChunks": false,
           "extractLicenses": true,

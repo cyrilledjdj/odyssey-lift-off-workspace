@@ -59,7 +59,7 @@ const TrackDetail = ({ track }) => {
             <AuthorName>{author.name}</AuthorName>
           </DetailItem>
           <div>
-            <StyledLink to={`./${id}/module/${modules[0]['id']}`}>
+            <StyledLink to={`./../${id}/module/${modules[0]['id']}`}>
               <Button
                 icon={<IconRun width="20px" />}
                 color={colors.pink.base}

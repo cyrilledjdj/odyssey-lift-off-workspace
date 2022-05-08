@@ -12,14 +12,14 @@ const ModulesNav = ({ module, track }) => {
     <ModulesNavContainer>
       <ModuleTitle>
         <h4>
-          <Link to="../..">{track.title}</Link>
+          <Link to="./../..">{track.title}</Link>
         </h4>
       </ModuleTitle>
       <ModulesList>
         {track.modules.map((navModule) => (
           <ModuleListItem key={`module_${navModule.id}`}>
             <div>
-              <ModuleNavStyledLink to={`../${navModule.id}`}>
+              <ModuleNavStyledLink to={`./../${navModule.id}`}>
                 <ModuleListItemContent isActive={navModule.id === module.id}>
                   {navModule.id === module.id ? (
                     <IconDoubleArrowRight width="14px" />
