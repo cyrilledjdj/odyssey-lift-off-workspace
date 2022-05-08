@@ -1,3 +1,4 @@
+import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import { Module } from '@nestjs/common';
 import { GraphQLModule } from '@nestjs/graphql';
 import { ServeStaticModule } from '@nestjs/serve-static';
@@ -16,9 +17,11 @@ import { TrackModule } from './track/track.module';
       },
       {
         rootPath: join(__dirname, '..', 'odyssey-lift-off'),
-      },
+        exclude: ['/api'],
+      }
     ),
-    GraphQLModule.forRootAsync({
+    GraphQLModule.forRootAsync<ApolloDriverConfig>({
+      driver: ApolloDriver,
       useClass: GqlConfigService,
     }),
   ],
